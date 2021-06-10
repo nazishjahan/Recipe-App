@@ -25,9 +25,9 @@ struct RecipeDetailView: View {
                         Text("Ingredients").font(.headline)
                             .padding(.top,5)
                     Divider()
-                    ForEach(recipe.ingredients, id:\.self){
+                    ForEach(recipe.ingredients){
                         r in
-                        Text("•" + r)
+                        Text("•" + r.name)
                             .multilineTextAlignment(.leading)
                            
                     }
