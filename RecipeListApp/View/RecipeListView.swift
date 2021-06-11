@@ -1,15 +1,16 @@
 //
 //  ContentView.swift
 //  RecipeListApp
+
 //
 //  Created by NAZISH ZOHAIB on 03/06/2021.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct RecipeListView: View {
     
-   @ObservedObject var model = RecipeModel()
+    @EnvironmentObject var model:RecipeModel
     
     var body: some View {
         
@@ -27,9 +28,6 @@ struct ContentView: View {
                             .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .clipped()
                             .cornerRadius(5)
-                        
-                            
-                    
                         Text(r.name)
                     .padding()
                     }
@@ -42,6 +40,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RecipeListView()
     }
 }
