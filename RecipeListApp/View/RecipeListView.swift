@@ -21,7 +21,7 @@ struct RecipeListView: View {
                 .bold()
              
                 .padding(.top, 40)
-                .font(.largeTitle)
+                .font(Font.custom("Avenir Heavy", size:24))
                 
                 ScrollView{
                     LazyVStack(alignment: .leading){

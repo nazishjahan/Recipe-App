@@ -34,7 +34,7 @@ class RecipeModel:ObservableObject{
         numenator /= divisor
         denominator /= divisor
         // Get the whole portion if numenator is greater than the denominator
-        if numenator > denominator{
+        if numenator >= denominator{
             
             // Calculate the whole portion
             wholePortions = numenator / denominator
@@ -48,12 +48,26 @@ class RecipeModel:ObservableObject{
         // Express the remainder as a fraction
         if numenator > 0{
              // Assign remainder as fraction to the portion string
-            portion += wholePortions > 0 ? " " : ""
+        portion += wholePortions > 0 ? " " : ""
             portion += "\(numenator) / \(denominator)"
         }
-        if let unit = ingredient.unit{
-            portion += ingredient.num == nil && ingredient.denom == nil ? "" : " "
+        if var unit = ingredient.unit{
+            // if we need to pluralize
+            if wholePortions > 1{
+                 // Calculate appropriate suffix
+                if unit.suffix(2) == "ch"{
+                    unit += "es"
+                }
+                else if unit.suffix(1) == "f"{
+                    unit = String(unit.dropLast())
+                    unit += "ves"
+                }
+                else{
+                    unit += "s"
+                }
+            }
             //calculate appropriste suffix
+           portion += ingredient.num == nil && ingredient.denom == nil ? "" : " "
             return portion + unit
         }
     }
