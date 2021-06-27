@@ -19,7 +19,6 @@ struct RecipeListView: View {
             VStack(alignment: .leading){
             Text("All Recipes")
                 .bold()
-             
                 .padding(.top, 40)
                 .font(Font.custom("Avenir Heavy", size:24))
                 
@@ -40,9 +39,14 @@ struct RecipeListView: View {
                             .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .clipped()
                             .cornerRadius(5)
+                        
+                        VStack{
                         Text(r.name)
                             .foregroundColor(.black)
+                            .font(Font.custom("Avenir Heavy", size:16))
                     .padding()
+
+                        }
                     }
                 })
                }

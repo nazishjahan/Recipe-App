@@ -21,10 +21,17 @@ struct RecipeDetailView: View {
                         .scaledToFill()
                
                 // MARK: Recipe Title
+                Text(recipe.name)
+                    .bold()
+                    .padding(.top,20)
+                    .padding(.leading)
+                    .font(Font.custom("Avenir Heavy", size:24))
                 
+     
                 VStack(alignment: .leading){
                     
                     Text("Select your Serving Size: ")
+                
                 // MARK: Serving size Picker
                 Picker("",selection:$servingSizeSeletion){
                     Text("2").tag(2)
@@ -62,7 +69,7 @@ struct RecipeDetailView: View {
                  }
                    }.padding(.horizontal)
                 }
-        }.navigationBarTitle(recipe.name)
+        }
            
     }
 }
